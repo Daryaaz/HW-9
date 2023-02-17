@@ -1,5 +1,20 @@
-const sum = require('./sum');
+const calculateBonus = require("./sum.js");
 
-test('adds 1 + 2 to equal 3', () => {
-  expect(sum(1, 2)).toBe(3);
+describe("Bonus < 50", () => {
+  it("Bonus < 50", () => {
+    expect(calculateBonus(48, 1)).toBeLessThan(50);
+  });
+});
+
+describe("Bonus > 50", () => {
+  it("Bonus > 50", () => {
+    expect(calculateBonus(50, 1)).toBe(50);
+  });
+});
+
+describe("Bonus = 50", () => {
+  it("Bonus = 50", () => {
+    expect(calculateBonus(48, 2)).toBe(50);
+    expect(calculateBonus(48, 2)).toEqual(50);
+  });
 });
